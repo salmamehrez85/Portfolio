@@ -556,10 +556,9 @@ span {
 }
 
 .education {
-  background-color: rgba(0, 0, 0, 0.15);
-  padding: 30px;
-  margin: 30px auto;
-  max-width: 1800px;
+  font-size: 8rem;
+  text-align: center;
+  margin: 5rem 0;
 }
 
 .education h1 {
@@ -571,7 +570,7 @@ span {
 .education h2 {
   font-size: 3rem;
   text-align: center;
-  margin: 5rem 0;
+  margin-bottom: 0%;
 }
 
 .logos {
@@ -603,3 +602,61 @@ strong {
   font-weight: bold;
   color: #b3567b;
 }
+
+.resume {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: var(--bg-color);
+}
+.resume h1 {
+  font-size: 5rem;
+  text-align: center;
+  margin: 8rem 0;
+}
+
+.resume i {
+  font-size: 60px;
+  color: #b3567b;
+  margin-bottom: 40px;
+  text-align: center;
+  justify-content: center;
+}
+.resume p {
+  font-size: 2.5rem;
+  color: white;
+  line-height: 1.6;
+  margin-bottom: 50px;
+}
+.resume .btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1.5rem;
+  color: #b3567b;
+  border: 2px solid #b3567b;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s;
+  text-align: center;
+  justify-content: center;
+}
+.resume .btn:hover {
+  background-color: #b3567b;
+  color: #fff;
+}
+.resume .icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  text-align: center;
+  justify-content: center;
+}
+
+/*
+<i class="bx bxs-download" id="download">
+
+#download {
+  margin: auto;
+  margin-left: 10px;
+  font-size: 3rem;
+}
+  */
