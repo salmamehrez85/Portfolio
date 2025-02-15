@@ -13,7 +13,7 @@
   --bg-color: #080808;
   --second-bg-color: #131313;
   --text-color: white;
-  --main-color: #00ffee;
+  --main-color: #d9b8b8;
 }
 
 html {
@@ -146,6 +146,7 @@ span {
   max-width: 1000px;
 }
 
+/*
 .social-icons a {
   display: inline-flex;
   align-items: center;
@@ -157,10 +158,9 @@ span {
   border-radius: 50%;
   font-size: 2.5rem;
   color: var(--main-color);
-  margin: 3rem 3.5rem 5rem 0;
-  /*margin-left: 180px; */
   transition: 0.3s ease-in-out;
 }
+  */
 
 .social-icons a:hover {
   background-color: var(--main-color);
@@ -170,6 +170,7 @@ span {
 }
 
 .btn {
+  margin-left: 800px;
   display: inline-block;
   padding: 1rem 2.8rem;
   background: var(--main-color);
@@ -291,6 +292,74 @@ span {
   }
 }
 
+.skills {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: var(--bg-color);
+}
+
+.skills h2 {
+  font-size: 6rem;
+  text-align: center;
+  margin: 5rem 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.skill-category {
+  margin: 3rem 0;
+  text-align: center;
+  background: black;
+  padding: 30px;
+  border-radius: 30px;
+  border: 2px solid cyan;
+  box-shadow: 0px 0px 15px cyan;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+
+.skill-category i {
+  font-size: 50px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.skill-category h3 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.skill-category p {
+  font-size: 1.5rem;
+  color: #d9b8b8;
+  line-height: 1.6;
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsive design for mobile view */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .heading {
   font-size: 8rem;
   text-align: center;
@@ -361,14 +430,14 @@ span {
 
 .content h3 {
   margin: 0 0 10px;
-  font-size: 2.5rem;
+  font-size: 25px;
   text-align: left;
 }
 
 .content p {
   margin: 0;
   text-align: left;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
   line-height: 22px;
 }
