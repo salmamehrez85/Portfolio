@@ -646,7 +646,6 @@ strong {
 .resume .icon {
   width: 60px;
   height: 60px;
-  margin-bottom: 10px;
   text-align: center;
   justify-content: center;
 }
@@ -660,3 +659,50 @@ strong {
   font-size: 3rem;
 }
   */
+
+.contact {
+  text-align: center;
+  background-color: var(--bg-color);
+}
+
+.contact h1 {
+  font-size: 6rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.contact p {
+  font-size: 1.5rem;
+  color: #d9b8b8;
+  line-height: 1.6;
+}
+
+.contact .icon {
+  font-size: 10rem;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 50px;
+  margin-left: 600px;
+}
+.contact-info {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+.social-buttons a {
+  background-color: #b3567b;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 2rem;
+  border-radius: 25px;
+  border: 2px solid #fff;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.social-buttons a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
