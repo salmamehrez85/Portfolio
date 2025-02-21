@@ -601,7 +601,7 @@ strong {
 
 .resume {
   text-align: center;
-  margin-top: -40px;
+  margin-top: -150px;
   padding: 60px 20px;
   background-color: var(--bg-color);
   margin-bottom: -100px;
@@ -660,50 +660,70 @@ strong {
   */
 
 .contact {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+  background-color: var(--second-bg-color);
   text-align: center;
-  background-color: var(--bg-color);
-  padding: 12rem 12% 10rem;
 }
 
-.contact h1 {
-  font-size: 6rem;
+.contact .social-buttons {
   text-align: center;
-  margin-bottom: 30px;
+  padding-bottom: 25px;
+  color: var(--main-color);
 }
-
-.contact p {
-  font-size: 1.5rem;
-  color: #d9b8b8;
-  line-height: 1.6;
-}
-
-.contact .icon {
-  font-size: 10rem;
-  width: 60px;
-  height: 60px;
-  margin-bottom: 50px;
-  margin-left: 600px;
-}
-.contact-info {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  margin-bottom: 30px;
-}
-
-.social-buttons a {
+.contact .social-buttons a {
   background-color: #b3567b;
-  color: #fff;
+  width: auto;
+  text-align: center;
+  color: var(--main-color);
   display: inline-block;
   padding: 10px 20px;
-  margin: 5px;
-  font-size: 2rem;
-  border-radius: 25px;
-  border: 2px solid #fff;
+  margin: 0 10px;
+  font-size: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--main-color);
   text-decoration: none;
-  transition: background-color 0.3s;
+  transition: 0.3s ease-in-out;
 }
 
 .social-buttons a:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: scale(1.2) translateY(-5px);
+  box-shadow: 0 8px 12px var(--main-color);
+  color: #080808;
+  background-color: var(--main-color);
+}
+
+.contact h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact p {
+  font-size: 1.3rem;
+  color: #d9b8b8;
+  line-height: 1.6;
+}
+.contact h3 {
+  color: aliceblue;
+  font-size: 13px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+.contact .icon {
+  font-size: 5rem;
+  width: 60px;
+  height: 60px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-left: 810px;
+  text-align: center;
+}
+.contact-info {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
 }
