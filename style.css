@@ -13,7 +13,7 @@
   --bg-color: #080808;
   --second-bg-color: #131313;
   --text-color: white;
-  --main-color: #d9b8b8;
+  --main-color: #FFE8DB;
   --header-bg: rgba(0, 0, 0, 0.3);
   --card-bg: #131313;
   --border-color: #333;
@@ -24,7 +24,7 @@
   --bg-color: #ffffff;
   --second-bg-color: #f8f9fa;
   --text-color: #333333;
-  --main-color: #8b5a5a;
+  --main-color: #F28E8E;
   --header-bg: rgba(255, 255, 255, 0.9);
   --card-bg: #ffffff;
   --border-color: #e0e0e0;
@@ -173,12 +173,13 @@ span {
 
 .home-img {
   border-radius: 10px;
+
 }
 
 .home-img img {
   position: relative;
   top: 3rem;
-  width: 60vm;
+  width: 30vw;
   border-radius: 10px;
   box-shadow: 0 0 25px var(--main-color);
   cursor: pointer;
@@ -792,22 +793,38 @@ strong {
     top: 100%;
     left: 0;
     width: 100%;
-    padding: 1rem 4%;
-    background: var(--header-bg);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    padding: 2rem 4%;
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+    border-top: 2px solid var(--border-color);
     display: none;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     flex: unset;
+    z-index: 1000;
+    transition: all 0.3s ease;
   }
   .navbar.active {
     display: flex;
+    animation: slideDown 0.3s ease;
   }
   .navbar a {
     margin-left: 0;
     font-size: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+    background: transparent;
+  }
+  .navbar a:hover,
+  .navbar a.active {
+    background: var(--main-color);
+    color: var(--bg-color);
+    transform: scale(1.05);
   }
   .theme-toggle {
     position: absolute;
@@ -817,6 +834,11 @@ strong {
   }
   #menu-icon {
     display: block;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  #menu-icon:hover {
+    transform: scale(1.1);
   }
   .home {
     flex-direction: column;
@@ -834,8 +856,102 @@ strong {
     width: 80vw;
     max-width: 300px;
   }
+  
+  /* Experience section responsive */
+  .title {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+  }
+  
+  .timeline-container {
+    padding: 40px 0;
+  }
+  
+  .timeline-container::before {
+    left: 20px;
+    height: 100%;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    padding-left: 60px;
+    padding-right: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+    text-align: left;
+  }
+  
+  .content {
+    padding: 20px;
+    border-radius: 15px;
+  }
+  
+  .content h2 {
+    font-size: 1.8rem;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  
+  .content h3 {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+  
+  .content p {
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+  
+  .content .btn {
+    margin: 20px 0 0 0;
+    display: block;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 3rem;
+  }
+  
+  .timeline-item {
+    padding-left: 50px;
+    padding-right: 10px;
+  }
+  
+  .content {
+    padding: 15px;
+  }
+  
+  .content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .content h3 {
+    font-size: 1.4rem;
+  }
+  
+  .content p {
+    font-size: 1.2rem;
+  }
 }
 
 [data-theme="light"] .btn {
   color: #fff !important;
+}
+
+/* Mobile menu animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
