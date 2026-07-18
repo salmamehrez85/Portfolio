@@ -983,17 +983,17 @@ span {
   position: relative;
 }
 
-.my-slide, .programa-slide {
+.my-slide, .programa-slide, .crossborder-slide {
   display: none;
   width: 100%;
   height: 100%;
 }
 
-.my-slide.active, .programa-slide.active {
+.my-slide.active, .programa-slide.active, .crossborder-slide.active {
   display: block;
 }
 
-.my-slide img, .programa-slide img {
+.my-slide img, .programa-slide img, .crossborder-slide img {
   width: 100%;
   height: 100%;
   object-fit: contain;

@@ -356,4 +356,87 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  // 5. Image Showcase Slideshow Modal (for CrossBorder)
+  const crossborderShowcaseModal = document.getElementById("crossborder-showcase-modal");
+  const closeCrossborderShowcase = document.querySelector(".close-crossborder-showcase");
+  const viewCrossborderShowcaseBtns = document.querySelectorAll(".view-crossborder-showcase-btn");
+  const crossborderSlides = document.querySelectorAll(".crossborder-slide");
+  const prevCrossborderBtn = document.querySelector(".prev-crossborder-slide");
+  const nextCrossborderBtn = document.querySelector(".next-crossborder-slide");
+  const crossborderSlideIndicator = document.querySelector(".crossborder-slide-indicator");
+
+  if (crossborderShowcaseModal && crossborderSlides.length > 0) {
+    let currentCrossborderSlideIndex = 0;
+
+    const showCrossborderSlide = (index) => {
+      if (index >= crossborderSlides.length) currentCrossborderSlideIndex = 0;
+      else if (index < 0) currentCrossborderSlideIndex = crossborderSlides.length - 1;
+      else currentCrossborderSlideIndex = index;
+
+      crossborderSlides.forEach((slide) => slide.classList.remove("active"));
+      crossborderSlides[currentCrossborderSlideIndex].classList.add("active");
+
+      if (crossborderSlideIndicator) {
+        crossborderSlideIndicator.textContent = `${currentCrossborderSlideIndex + 1} / ${crossborderSlides.length}`;
+      }
+    };
+
+    // Open Showcase Modal
+    viewCrossborderShowcaseBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        crossborderShowcaseModal.style.display = "flex";
+        void crossborderShowcaseModal.offsetWidth;
+        crossborderShowcaseModal.classList.add("show");
+        showCrossborderSlide(0);
+      });
+    });
+
+    // Close Showcase Modal
+    const closeCrossborderShowcaseModal = () => {
+      crossborderShowcaseModal.classList.remove("show");
+      setTimeout(() => {
+        crossborderShowcaseModal.style.display = "none";
+      }, 300);
+    };
+
+    if (closeCrossborderShowcase) {
+      closeCrossborderShowcase.addEventListener("click", closeCrossborderShowcaseModal);
+    }
+
+    crossborderShowcaseModal.addEventListener("click", (e) => {
+      if (e.target === crossborderShowcaseModal) {
+        closeCrossborderShowcaseModal();
+      }
+    });
+
+    // Previous / Next Slide click handlers
+    if (prevCrossborderBtn) {
+      prevCrossborderBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        showCrossborderSlide(currentCrossborderSlideIndex - 1);
+      });
+    }
+
+    if (nextCrossborderBtn) {
+      nextCrossborderBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        showCrossborderSlide(currentCrossborderSlideIndex + 1);
+      });
+    }
+
+    // Keyboard navigation (arrows + Esc)
+    window.addEventListener("keydown", (e) => {
+      if (crossborderShowcaseModal.classList.contains("show")) {
+        if (e.key === "ArrowLeft") {
+          showCrossborderSlide(currentCrossborderSlideIndex - 1);
+        } else if (e.key === "ArrowRight") {
+          showCrossborderSlide(currentCrossborderSlideIndex + 1);
+        } else if (e.key === "Escape") {
+          closeCrossborderShowcaseModal();
+        }
+      }
+    });
+  }
 });
