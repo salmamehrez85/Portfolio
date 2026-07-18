@@ -270,4 +270,90 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  // 4. Image Showcase Slideshow Modal (for Programa)
+  const programaShowcaseModal = document.getElementById("programa-showcase-modal");
+  const closeProgramaShowcase = document.querySelector(".close-programa-showcase");
+  const viewProgramaShowcaseBtns = document.querySelectorAll(".view-programa-showcase-btn");
+  const programaSlides = document.querySelectorAll(".programa-slide");
+  const prevProgramaBtn = document.querySelector(".prev-programa-slide");
+  const nextProgramaBtn = document.querySelector(".next-programa-slide");
+  const programaSlideIndicator = document.querySelector(".programa-slide-indicator");
+
+  if (programaShowcaseModal && programaSlides.length > 0) {
+    let currentProgramaSlideIndex = 0;
+
+    const showProgramaSlide = (index) => {
+      // Loop boundaries
+      if (index >= programaSlides.length) currentProgramaSlideIndex = 0;
+      else if (index < 0) currentProgramaSlideIndex = programaSlides.length - 1;
+      else currentProgramaSlideIndex = index;
+
+      // Hide all, show active
+      programaSlides.forEach((slide) => slide.classList.remove("active"));
+      programaSlides[currentProgramaSlideIndex].classList.add("active");
+
+      // Update indicator
+      if (programaSlideIndicator) {
+        programaSlideIndicator.textContent = `${currentProgramaSlideIndex + 1} / ${programaSlides.length}`;
+      }
+    };
+
+    // Open Showcase Modal
+    viewProgramaShowcaseBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        programaShowcaseModal.style.display = "flex";
+        void programaShowcaseModal.offsetWidth;
+        programaShowcaseModal.classList.add("show");
+        showProgramaSlide(0); // Start from first slide
+      });
+    });
+
+    // Close Showcase Modal
+    const closeProgramaShowcaseModal = () => {
+      programaShowcaseModal.classList.remove("show");
+      setTimeout(() => {
+        programaShowcaseModal.style.display = "none";
+      }, 300);
+    };
+
+    if (closeProgramaShowcase) {
+      closeProgramaShowcase.addEventListener("click", closeProgramaShowcaseModal);
+    }
+
+    programaShowcaseModal.addEventListener("click", (e) => {
+      if (e.target === programaShowcaseModal) {
+        closeProgramaShowcaseModal();
+      }
+    });
+
+    // Previous / Next Slide click handlers
+    if (prevProgramaBtn) {
+      prevProgramaBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        showProgramaSlide(currentProgramaSlideIndex - 1);
+      });
+    }
+
+    if (nextProgramaBtn) {
+      nextProgramaBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        showProgramaSlide(currentProgramaSlideIndex + 1);
+      });
+    }
+
+    // Keyboard navigation (arrows + Esc)
+    window.addEventListener("keydown", (e) => {
+      if (programaShowcaseModal.classList.contains("show")) {
+        if (e.key === "ArrowLeft") {
+          showProgramaSlide(currentProgramaSlideIndex - 1);
+        } else if (e.key === "ArrowRight") {
+          showProgramaSlide(currentProgramaSlideIndex + 1);
+        } else if (e.key === "Escape") {
+          closeProgramaShowcaseModal();
+        }
+      }
+    });
+  }
 });
