@@ -155,7 +155,7 @@ My experience ranges from engineering AI-powered SaaS platforms to developing co
             <span class="dot red"></span>
             <span class="dot yellow"></span>
             <span class="dot green"></span>
-            <span class="window-title">unimate-ai.vercel.app</span>
+            <span class="window-title">unimate.education.eg</span>
           </div>
           <div class="project-media">
             <div class="media-fallback">
@@ -182,6 +182,7 @@ My experience ranges from engineering AI-powered SaaS platforms to developing co
             </p>
             <div class="project-links">
               <a href="https://unimate-ai.vercel.app/" target="_blank" class="btn-primary">Live Demo <i class="bx bx-right-arrow-alt"></i></a>
+              <button class="btn-secondary watch-demo-btn" data-video="https://drive.google.com/file/d/1AkuR8X2gFFKe_v8IAzQIMuGjyhWsJ6VT/view?usp=sharing">Watch Demo <i class="bx bx-play-circle"></i></button>
             </div>
           </div>
         </div>
@@ -199,9 +200,9 @@ My experience ranges from engineering AI-powered SaaS platforms to developing co
               <i class="bx bxs-mobile"></i>
             </div>
             <img src="images/audoria-screenshot.png" alt="Audoria Mobile App Screenshot">
-            <div class="media-overlay" onclick="window.open('https://github.com/salmamehrez85/audoria', '_blank')">
-              <i class="bx bx-link-external"></i>
-              <span>View Live Project</span>
+            <div class="media-overlay watch-demo-btn" data-video="https://drive.google.com/file/d/15hZDXk2ryQgsCmCrcAHeXQC4WE9NCx_K/view">
+              <i class="bx bx-play-circle"></i>
+              <span>Play Video Demo</span>
             </div>
           </div>
           <div class="project-info">
@@ -216,8 +217,7 @@ My experience ranges from engineering AI-powered SaaS platforms to developing co
               Co-developed a voice-driven educational mobile application designed to empower visually impaired students with independent learning workflows. Integrated OCR image/PDF text extraction and custom Firebase services to automate assessment generation, study material uploads, and secure QR progress tracking.
             </p>
             <div class="project-links">
-              <a href="https://github.com/salmamehrez85/audoria" target="_blank" class="btn-primary">Live Demo <i class="bx bx-right-arrow-alt"></i></a>
-              <button class="btn-secondary watch-demo-btn" data-video="https://drive.google.com/file/d/15hZDXk2ryQgsCmCrcAHeXQC4WE9NCx_K/view"><i class="bx bx-play-circle"></i> Watch Demo</button>
+              <button class="btn-primary watch-demo-btn" data-video="https://drive.google.com/file/d/15hZDXk2ryQgsCmCrcAHeXQC4WE9NCx_K/view">Watch Demo <i class="bx bx-play-circle"></i></button>
             </div>
           </div>
         </div>
@@ -235,10 +235,9 @@ My experience ranges from engineering AI-powered SaaS platforms to developing co
               <i class="bx bxs-shopping-bag"></i>
             </div>
             <img src="images/ostr-screenshot.png" alt="OSTR Screenshot">
-            <video src="videos/ostr-preview.mp4" loop muted playsinline></video>
-            <div class="media-overlay" onclick="window.open('https://ostr-demo.vercel.app', '_blank')">
-              <i class="bx bx-link-external"></i>
-              <span>View Live Project</span>
+            <div class="media-overlay view-showcase-btn">
+              <i class="bx bx-images"></i>
+              <span>View Image Showcase</span>
             </div>
           </div>
           <div class="project-info">
@@ -255,8 +254,7 @@ My experience ranges from engineering AI-powered SaaS platforms to developing co
               Designed and developed a full-stack fashion e-commerce platform from scratch with React and Node.js. Implemented secure user authentication, product catalog management, shopping cart logic, and a fully responsive interface.
             </p>
             <div class="project-links">
-              <a href="https://ostr-demo.vercel.app" target="_blank" class="btn-primary">Live Demo <i class="bx bx-right-arrow-alt"></i></a>
-              <button class="btn-secondary watch-demo-btn" data-video="videos/ostr-demo.mp4">Watch Demo <i class="bx bx-play-circle"></i></button>
+              <button class="btn-primary view-showcase-btn">View Showcase <i class="bx bx-images"></i></button>
             </div>
           </div>
         </div>
@@ -327,6 +325,26 @@ My experience ranges from engineering AI-powered SaaS platforms to developing co
       </div>
     </div>
 
-    <script src="script.js"></script>    
+    <!-- Image Showcase Modal -->
+    <div id="showcase-modal" class="modal">
+      <div class="modal-content showcase-content">
+        <span class="close-showcase close-modal">&times;</span>
+        <div class="showcase-container">
+          <div class="my-slide active"><img src="images/ostr-screenshot.png" alt="OSTR Screenshot 1"></div>
+          <div class="my-slide"><img src="images/ostr-teaser.png" alt="OSTR Screenshot 2"></div>
+          <div class="my-slide"><img src="images/ostr-product.png" alt="OSTR Screenshot 3"></div>
+          <div class="my-slide"><img src="images/ostr-shop.png" alt="OSTR Screenshot 4"></div>
+          
+          <!-- Navigation buttons -->
+          <a class="prev-slide">&#10094;</a>
+          <a class="next-slide">&#10095;</a>
+          
+          <!-- Slide indicator counter -->
+          <div class="slide-indicator">1 / 4</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js?v=1.2"></script>    
   </body>
 </html>
