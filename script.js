@@ -439,4 +439,21 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  // 4. Project Card "Read More" toggles
+  const showMoreBtns = document.querySelectorAll(".show-more-btn");
+  showMoreBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const parent = btn.closest(".project-info");
+      const details = parent.querySelector(".project-details-more");
+      
+      if (details.classList.contains("expanded")) {
+        details.classList.remove("expanded");
+        btn.innerHTML = `Read More <i class="bx bx-chevron-down"></i>`;
+      } else {
+        details.classList.add("expanded");
+        btn.innerHTML = `Read Less <i class="bx bx-chevron-up"></i>`;
+      }
+    });
+  });
 });
