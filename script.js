@@ -457,3 +457,97 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+/* ============================================================
+   ANIMATION ORCHESTRATION
+   1. Hero stagger on load
+   2. Intersection Observer scroll-reveals for every section
+   ============================================================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // ── 1. HERO STAGGER ──────────────────────────────────────────
+  // Add .hero-animate to every direct child of home-content + the image
+  // so animations.css picks them up immediately on page load.
+  const heroChildren = document.querySelectorAll(
+    ".home-content h1, .home-content .text-animation, .home-content > p, .home-content .btn-group"
+  );
+  heroChildren.forEach(el => el.classList.add("hero-animate"));
+
+  const homeImg = document.querySelector(".home-img");
+  if (homeImg) homeImg.classList.add("hero-animate");
+
+  // ── 2. INTERSECTION OBSERVER FACTORY ────────────────────────
+  /**
+   * Creates an IntersectionObserver that adds .revealed to each target
+   * when it enters the viewport, then stops watching it.
+   * @param {string}  selector   - CSS selector for elements to observe
+   * @param {number}  threshold  - 0–1, fraction of element visible before firing
+   * @param {boolean} stagger    - if true, nth-child delay is set inline (100ms steps)
+   * @param {string}  childClass - if set, .revealed is applied to this child instead
+   */
+  function createObserver(selector, threshold = 0.15, stagger = false, childClass = null) {
+    const elements = document.querySelectorAll(selector);
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const target = childClass
+          ? entry.target.querySelector(childClass)
+          : entry.target;
+
+        if (target) {
+          target.classList.add("revealed");
+        }
+
+        observer.unobserve(entry.target);
+      });
+    }, { threshold });
+
+    elements.forEach((el, i) => {
+      // Apply stagger delay inline so CSS transition picks it up
+      if (stagger) {
+        const delayTarget = childClass ? el.querySelector(childClass) : el;
+        if (delayTarget) {
+          delayTarget.style.transitionDelay = `${i * 0.10}s`;
+        }
+      }
+      observer.observe(el);
+    });
+  }
+
+  // ── 3. SECTION TITLE ACCENTS ──────────────────────────────────
+  // Wrap every section title so the underline accent can be revealed
+  document.querySelectorAll(
+    ".projects h2, .experience h1, .skills h2, .education h1, .contact h1"
+  ).forEach(el => {
+    el.classList.add("title-accent");
+  });
+
+  createObserver(
+    ".projects h2, .experience h1, .skills h2, .education h1, .contact h1",
+    0.5, false, null
+  );
+
+  // ── 4. PROJECT CARDS — staggered grid ─────────────────────────
+  createObserver(".project-card", 0.12, true);
+
+  // ── 5. EXPERIENCE TIMELINE ITEMS ─────────────────────────────
+  createObserver(".timeline-item.left",  0.20, false, ".content");
+  createObserver(".timeline-item.right", 0.20, false, ".content");
+
+  // ── 6. SKILL CATEGORY CARDS — staggered ───────────────────────
+  createObserver(".skill-category", 0.15, true);
+
+  // ── 7. EDUCATION & CONTACT CARDS ─────────────────────────────
+  createObserver(".education-card",  0.20, false);
+  createObserver(".contact-card",    0.15, true);
+
+  // ── 8. GENERIC .reveal / .reveal-left / .reveal-right ─────────
+  createObserver(".reveal",       0.15, false);
+  createObserver(".reveal-left",  0.15, false);
+  createObserver(".reveal-right", 0.15, false);
+
+});

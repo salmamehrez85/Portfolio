@@ -1,0 +1,258 @@
+/* ============================================================
+   PORTFOLIO ANIMATIONS — animations.css
+   Only transform + opacity are animated (GPU-accelerated).
+   Wrapped in prefers-reduced-motion for accessibility.
+   ============================================================ */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* ──────────────────────────────────────────────
+     1. HERO — staggered fade-in-up on page load
+  ────────────────────────────────────────────── */
+
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0);    }
+  }
+
+  .hero-animate {
+    opacity: 0;
+    animation: heroFadeUp 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .home-content h1               { animation-delay: 0.05s; }
+  .home-content .text-animation  { animation-delay: 0.20s; }
+  .home-content > p              { animation-delay: 0.35s; }
+  .home-content .btn-group       { animation-delay: 0.50s; }
+  .home-img.hero-animate         { animation-delay: 0.60s; }
+
+  /* ──────────────────────────────────────────────
+     2. SCROLL-REVEAL BASE CLASSES
+     Intersection Observer in script.js adds .revealed
+  ────────────────────────────────────────────── */
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform;
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform;
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform;
+  }
+
+  .reveal.revealed,
+  .reveal-left.revealed,
+  .reveal-right.revealed {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  /* ──────────────────────────────────────────────
+     3. PROJECT CARDS — staggered grid entrance
+     JS sets transition-delay per card index
+  ────────────────────────────────────────────── */
+
+  .project-card {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+    will-change: opacity, transform;
+  }
+
+  .project-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ──────────────────────────────────────────────
+     4. EXPERIENCE TIMELINE — alternating slide-in
+  ────────────────────────────────────────────── */
+
+  .timeline-item.left .content {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.3s ease;
+    will-change: opacity, transform;
+  }
+
+  .timeline-item.right .content {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.3s ease;
+    will-change: opacity, transform;
+  }
+
+  .timeline-item .content.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* ──────────────────────────────────────────────
+     5. SKILLS CARDS — pop-up with stagger
+  ────────────────────────────────────────────── */
+
+  .skill-category {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+    transition: opacity 0.40s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.40s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+    will-change: opacity, transform;
+  }
+
+  .skill-category.revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* ──────────────────────────────────────────────
+     6. EDUCATION & CONTACT CARDS
+  ────────────────────────────────────────────── */
+
+  .education-card {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+    will-change: opacity, transform;
+  }
+
+  .education-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .contact-card {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+    will-change: opacity, transform;
+  }
+
+  .contact-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ──────────────────────────────────────────────
+     7. SECTION TITLE underline accent
+  ────────────────────────────────────────────── */
+
+  .title-accent {
+    position: relative;
+    display: inline-block;
+  }
+
+  .title-accent::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 60%;
+    height: 3px;
+    background: var(--main-color);
+    border-radius: 2px;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s;
+  }
+
+  .title-accent.revealed::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  /* ──────────────────────────────────────────────
+     8. MICRO-INTERACTIONS
+  ────────────────────────────────────────────── */
+
+  /* Skill logo tile — snappy pop */
+  .skill-logo-item {
+    transition: transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-color 0.22s ease,
+                box-shadow 0.22s ease;
+  }
+
+  .skill-logo-item:hover {
+    transform: translateY(-6px) scale(1.14);
+    border-color: var(--main-color);
+    box-shadow: 0 8px 20px rgba(255, 232, 219, 0.4);
+  }
+
+  [data-theme="light"] .skill-logo-item:hover {
+    box-shadow: 0 8px 20px rgba(242, 142, 142, 0.35);
+  }
+
+  /* Project card 3-D lift */
+  .project-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4),
+                0 0 0 1px var(--main-color) !important;
+  }
+
+  /* Timeline content hover glow */
+  .timeline-item .content:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25),
+                0 0 0 1px var(--main-color);
+  }
+
+  /* Navbar underline slide */
+  .navbar a {
+    position: relative;
+  }
+
+  .navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--main-color);
+    border-radius: 1px;
+    transition: width 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .navbar a:hover::after,
+  .navbar a.active::after {
+    width: 100%;
+  }
+
+  /* Hero image subtle float loop */
+  @keyframes float {
+    0%, 100% { transform: translateY(0);     }
+    50%       { transform: translateY(-10px); }
+  }
+
+  .home-img img {
+    animation: float 5s ease-in-out infinite;
+  }
+
+} /* end @media prefers-reduced-motion */
+
