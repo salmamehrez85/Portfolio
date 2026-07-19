@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personal Portfolio</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.png">
-    <link rel="stylesheet" href="style.css?v=1.7" />
+    <link rel="stylesheet" href="style.css?v=2.1" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -45,9 +45,9 @@
 
         <div class="btn-group">
           <a href="https://drive.google.com/file/d/1JwwRg56loZFvLLLUGcWAQg1V1i68xKc8/view?usp=sharing" target="_blank" class="btn"><i class="bx bxs-file-pdf"></i> View Resume</a>
-          <a href="mailto:salmamehrez85@gmail.com" class="btn btn-outline"><i class="bx bxs-envelope"></i> Email</a>
-          <a href="https://www.linkedin.com/in/salma-mehrez/" target="_blank" class="btn"><i class="bx bxl-linkedin"></i> LinkedIn</a>
-          <a href="https://github.com/salmamehrez85" target="_blank" class="btn"><i class="bx bxl-github"></i> GitHub</a>
+          <a href="mailto:salmamehrez85@gmail.com" class="btn"><i class="bx bxs-envelope"></i> Email</a>
+          <a href="https://www.linkedin.com/in/salma-mehrez/" target="_blank" class="btn btn-linkedin"><i class="bx bxl-linkedin"></i> LinkedIn</a>
+          <a href="https://github.com/salmamehrez85" target="_blank" class="btn btn-github"><i class="bx bxl-github"></i> GitHub</a>
         </div>
       </div>
       <div class="home-img">
@@ -535,34 +535,57 @@
     </section>
 
     <section class="education" id="education">
-      <h1>Education</h1>
-      <h2>University</h2>
-      <div class="logos">
-        <a href="https://www.bue.edu.eg/" target="_blank">
-          <img src="images/BUE.png" alt="BUE Logo" class="university-logo" />
-        </a>
+      <h1 class="title">Education</h1>
+      <div class="education-container">
+        <div class="education-card">
+          <div class="education-logo-container">
+            <a href="https://www.bue.edu.eg/" target="_blank">
+              <img src="images/BUE.png" alt="BUE Logo" />
+            </a>
+          </div>
+          <div class="education-details">
+            <h3>The British University in Egypt</h3>
+            <h4>Faculty of Informatics and Computer Science</h4>
+            <p class="major">Software Engineering Major</p>
+            <div class="education-meta">
+              <span class="meta-badge"><i class="bx bx-calendar"></i> Graduated June 2026</span>
+              <span class="meta-badge"><i class="bx bx-line-chart"></i> GPA: 3.9/4.0 (Grade: A+)</span>
+              <span class="meta-badge honors"><i class="bx bxs-award"></i> Graduated with distinction with honours</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <p>
-        <strong>The British University in Egypt (BUE)</strong>
-      </p>
-      <p>
-        <strong>Faculty of Informatics and Computer Science</strong>, Software Engineering Major
-      </p>
-      <p>Graduated in June 2026</p>
-      <p style="font-style: italic; font-weight: bold; margin: 5px 0; color: var(--main-color);">Graduated with distinction with honours</p>
-      <p>Grade: A+ | GPA: 3.9</p>
     </section>
 
-    <footer class="contact" id="contact">
-      <h1>Contact</h1>
-      <p>Let's connect. Reach out via email or find me on professional networks.</p>
-      <div class="contact-info">
-        <p>Email: <a href="mailto:salmamehrez85@gmail.com">salmamehrez85@gmail.com</a></p>
+    <section class="contact" id="contact">
+      <h1 class="title">Contact</h1>
+      <p class="section-subtitle">Let's connect. Feel free to reach out via email or find me on professional networks.</p>
+      <div class="contact-container">
+        <!-- Direct Email Card -->
+        <div class="contact-card">
+          <div class="contact-icon-wrapper">
+            <i class="bx bxs-envelope"></i>
+          </div>
+          <h3>Email Address</h3>
+          <p>Drop me a message for opportunities or collaborations.</p>
+          <a href="mailto:salmamehrez85@gmail.com" class="btn email-link">salmamehrez85@gmail.com <i class="bx bx-send"></i></a>
+        </div>
+        <!-- Social Networks Card -->
+        <div class="contact-card">
+          <div class="contact-icon-wrapper">
+            <i class="bx bxs-share-alt"></i>
+          </div>
+          <h3>Professional Networks</h3>
+          <p>Explore my source code repositories or connect with me.</p>
+          <div class="contact-socials">
+            <a href="https://www.linkedin.com/in/salma-mehrez/" target="_blank" class="btn btn-linkedin"><i class="bx bxl-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/salmamehrez85" target="_blank" class="btn btn-github"><i class="bx bxl-github"></i> GitHub</a>
+          </div>
+        </div>
       </div>
-      <div class="social-buttons">
-        <a href="https://www.linkedin.com/in/salma-mehrez/" target="_blank"><i class="bx bxl-linkedin"></i></a>
-        <a href="https://github.com/salmamehrez85" target="_blank"><i class="bx bxl-github"></i></a>
-      </div>
+    </section>
+
+    <footer class="footer">
       <h3 class="copyright">&copy; Salma Mehrez | All Rights Reserved</h3>
     </footer>
        
