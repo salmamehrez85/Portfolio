@@ -492,6 +492,8 @@ span {
   font-size: 6rem;
   text-align: center;
   margin-bottom: -14px;
+  display: block;
+  width: 100%;
 }
 
 .timeline {
@@ -569,6 +571,65 @@ span {
   font-size: 14px;
   font-weight: 300;
   line-height: 22px;
+}
+
+/* ── SilverKey grouped card styles ── */
+.company-name {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--main-color);
+  margin: 0 0 18px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--main-color);
+  letter-spacing: 0.02em;
+}
+
+.role-group {
+  padding: 14px 0 6px;
+}
+
+.role-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.role-title {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: var(--text-color) !important;
+  margin: 0 !important;
+}
+
+.role-date {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--main-color);
+  background: rgba(255, 232, 219, 0.12);
+  border: 1px solid var(--main-color);
+  border-radius: 20px;
+  padding: 3px 12px;
+  white-space: nowrap;
+}
+
+[data-theme="light"] .role-date {
+  background: rgba(242, 142, 142, 0.1);
+}
+
+.role-group .btn {
+  margin-top: 14px;
+  margin-left: 0;
+  margin-bottom: 4px;
+}
+
+.role-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border-color), transparent);
+  margin: 16px 0;
+  opacity: 0.6;
 }
 
 .timeline-item {

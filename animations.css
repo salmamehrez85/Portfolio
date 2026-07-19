@@ -168,7 +168,8 @@
 
   .title-accent {
     position: relative;
-    display: inline-block;
+    display: block;
+    text-align: center;
   }
 
   .title-accent::after {
@@ -177,7 +178,7 @@
     bottom: -6px;
     left: 50%;
     transform: translateX(-50%) scaleX(0);
-    width: 60%;
+    width: 120px;
     height: 3px;
     background: var(--main-color);
     border-radius: 2px;
